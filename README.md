@@ -33,7 +33,6 @@ This will generate a WAR file in the target directory.
 4.	Deploy the Application
 Ensure Tomcat is installed.
 Copy the WAR file (e.g., student-management-1.0.war) to the webapps directory of your Apache Tomcat server.
-
 Start or restart the Tomcat server:
 i.	startup.sh start
 
