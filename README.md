@@ -12,16 +12,16 @@ Program Design
 Shared Interface (HTTPService):
 •	Location: shared/HTTPService.java
 •	Description: Defines the remote methods get and put.
-•	Methods:
 
+•	Methods:
 String get(String filename): Simulates the HTTP GET method. Takes a filename as an argument and returns the file content or an error message.
 String put(String filename, String content): Simulates the HTTP PUT method. Takes a filename and content as arguments and writes the content to the file. Returns a success or error message.
 
 Server-Side Implementation (HTTPServiceImpl):
 •	Location: server/HTTPServiceImpl.java
 •	Description: Implements the HTTPService interface.
-•	Methods:
 
+•	Methods:
 String get(String filename): Reads the file and returns its content if the file exists, or returns a "404 Not Found" message if the file does not exist.
 String put(String filename, String content): Writes the content to the file and returns a success message, or an error message if the operation fails.
 
