@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- Specifies the model version of the POM file -->
+    <modelVersion>4.0.0</modelVersion>
+    
+    <!-- Packaging type for the project -->
+    <packaging>war</packaging> <!-- WAR (Web Application Archive) file for web applications -->
+
+    <!-- Coordinates of the project -->
+    <groupId>com.example</groupId>
+    <artifactId>student-management</artifactId>
+    <version>1.0</version>
+
+    <dependencies>
+        <!-- Servlet API dependency -->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>5.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.servlet.jsp.jstl</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        
+
+        <!-- MySQL Connector dependency for database interaction -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.25</version>
+        </dependency>        
+
+        <!-- JSTL implementation dependency -->
+        
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Maven WAR plugin configuration -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.3</version>
+                <configuration>
+                    <!-- Specifies whether to fail the build if web.xml is missing -->
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
