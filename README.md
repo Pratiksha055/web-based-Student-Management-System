@@ -1,46 +1,43 @@
 # web-based-Student-Management-System
 
 
-This program simulates the behaviour of HTTP GET and PUT methods using Java RMI (Remote Method Invocation). It consists of three main components:
+Overview
+The Student Management System is a web application that allows users to add, view, edit, and delete student records. It is built using Java Servlets, JSP, and MySQL for the backend, and it is deployed as a WAR file.
 
-Shared Interface: Defines the remote methods.
-Server-Side Implementation: Implements the remote methods.
-Client: Interacts with the remote server to invoke the methods.
+Setup Instructions
 
-Program Design
+Prerequisites
+●	Java Development Kit (JDK): Ensure JDK 8 or later is installed.
+●	Apache Maven: Used for project build and dependency management.
+●	MySQL: Database server for storing student records.
+●	Apache Tomcat: Application server for running the web application.
 
-Shared Interface (HTTPService):
-•	Location: shared/HTTPService.java
-•	Description: Defines the remote methods get and put.
+Steps to Setup
 
-•	Methods:
-String get(String filename): Simulates the HTTP GET method. Takes a filename as an argument and returns the file content or an error message.
-String put(String filename, String content): Simulates the HTTP PUT method. Takes a filename and content as arguments and writes the content to the file. Returns a success or error message.
+1.	Configure Database
+Create a new database in MySQL named student_management.
+Run the provided SQL script (e.g., schema.sql) to set up the necessary tables.
+Update database.properties with your database credentials:
 
-Server-Side Implementation (HTTPServiceImpl):
-•	Location: server/HTTPServiceImpl.java
-•	Description: Implements the HTTPService interface.
+Properties
+i.	db.url=jdbc:mysql://localhost:3306/student_management
+ii.	db.user=root
+iii.	db.password= 23858594Par1!
 
-•	Methods:
-String get(String filename): Reads the file and returns its content if the file exists, or returns a "404 Not Found" message if the file does not exist.
-String put(String filename, String content): Writes the content to the file and returns a success message, or an error message if the operation fails.
+3.	Build the Project
+Ensure Maven is installed.
+Navigate to the project directory and run:
+i.	mvn clean package
+This will generate a WAR file in the target directory.
+
+4.	Deploy the Application
+Ensure Tomcat is installed.
+Copy the WAR file (e.g., student-management-1.0.war) to the webapps directory of your Apache Tomcat server.
+
+Start or restart the Tomcat server:
+i.	startup.sh start
 
 
+6.	Access the Application
+Open a web browser and go to http://localhost:8594/student-management.
 
-Server Setup (RMIServer):
-•	Location: server/RMIServer.java
-•	Description: Set up the RMI registry and bind the HTTPServiceImpl instance to the registry.
-•	Steps:
-
-Create an instance of HTTPServiceImpl.
-Start the RMI registry on port 1099.
-Bind the remote object to the RMI registry with the name "HTTPService".
-
-Client (RMIClient):
-•	Location: client/RMIClient.java
-•	Description: Connects to the RMI server and invokes the get or put methods based on command-line arguments.
-•	Steps:
-
-Parse command-line arguments.
-Look up the HTTPService object from the RMI registry using the provided URL.
-Based on the method specified (GET or PUT), invoke the corresponding method on the remote object and display the response.
